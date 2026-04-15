@@ -25,11 +25,11 @@ class LoginController extends Controller
             'password' => $request->password,
         ])) {
             $request->session()->regenerate();
-            
+
             if (Auth::user()->role === 'admin') {
                 return redirect('/peminjaman');
             }
-            
+
             return redirect('/siswa/dashboard');
         }
 

@@ -9,7 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6;
@@ -349,7 +349,7 @@
 
         <!-- Dashboard Content -->
         <div class="content-area">
-            
+
             <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
                 <div>
                     <h3 class="mb-1 fw-bold" style="color: #1f2937;">Katalog Buku Terpadu</h3>
@@ -391,7 +391,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
-            
+
             @if($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show border-0 rounded-3 shadow-sm bg-white mb-4" style="border-left: 4px solid #ef4444 !important;" role="alert">
                     <ul class="mb-0 ps-3 text-danger">
@@ -420,13 +420,13 @@
                                     ID: B-{{ str_pad($buku->id ?? rtrim('x'), 4, '0', STR_PAD_LEFT) }}
                                 </span>
                             </div>
-                            
+
                             <!-- Book Details -->
                             <div class="book-info">
                                 <div class="book-category"><i class="fa-solid fa-bookmark me-1 border-0"></i> Pustaka Umum</div>
                                 <h4 class="book-title">{{ $buku->judul ?? 'Judul Buku' }}</h4>
                                 <div class="book-author"><i class="fa-solid fa-pen-nib me-2"></i>{{ $buku->pengarang ?? 'Penulis Tidak Diketahui' }}</div>
-                                
+
                                 <div class="book-footer">
                                     <div class="book-stock">
                                         <i class="fa-solid fa-layer-group me-1"></i> Stok: {{ $buku->stok ?? 0 }}
@@ -455,7 +455,7 @@
 
         </div>
     </div>
-    
+
     <!-- Modal Tambah Buku -->
     <div class="modal fade" id="bukuModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -471,17 +471,22 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label text-muted" style="font-weight:600; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.5px;">Judul Buku</label>
-                            <input type="text" name="judul" class="form-control border-light-subtle shadow-sm bg-light" placeholder="Masukkan judul buku" required>
+                            <input type="text" name="judul" class="form-control border-light-subtle shadow-sm bg-light" required>
                         </div>
-                        
+
                         <div class="mb-3">
                             <label class="form-label text-muted" style="font-weight:600; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.5px;">Nama Pengarang</label>
-                            <input type="text" name="pengarang" class="form-control border-light-subtle shadow-sm bg-light" placeholder="Contoh: Andrea Hirata" required>
+                            <input type="text" name="pengarang" class="form-control border-light-subtle shadow-sm bg-light" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-muted" style="font-weight:600; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.5px;">Nama Penerbit</label>
+                            <input type="text" name="penerbit" class="form-control border-light-subtle shadow-sm bg-light" required>
                         </div>
 
                         <div class="mb-4">
-                            <label class="form-label text-muted" style="font-weight:600; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.5px;">Jumlah Stok (Eks)</label>
-                            <input type="number" name="stok" class="form-control border-light-subtle shadow-sm bg-light" placeholder="Contoh: 10" min="0" required>
+                            <label class="form-label text-muted" style="font-weight:600; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.5px;">Jumlah Stok</label>
+                            <input type="number" name="stok" class="form-control border-light-subtle shadow-sm bg-light" required>
                         </div>
 
                         <div class="d-flex justify-content-end gap-2 mt-4 pt-2 border-top">
